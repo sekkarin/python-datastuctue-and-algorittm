@@ -28,49 +28,29 @@ class Stack:
 
     def lengghtStack(self):
         return len(self.stack)
-
-
 if __name__ == '__main__':
-
+         
     stack = Stack()
-    # stack.add("a")
-    # stack.add("b")
-    # stack.add("{")
-    # stack.add("d")
-    # stack.add("e")
-    # stack.add("{")
-    # stack.add("f")
-    # stack.add("g")
-    # stack.add("}")
-    # stack.add("h")
-    # stack.add("{")
-    # stack.add("i")
-    # stack.add("}")
-    # stack.add("}")
-    # stack.add("j")
-    # stack.add("}")
-    # stack.add("k")
-    # print(stack.peek())
-    # stack.remove()
-    # print(stack.peek())
-    i = 0
-    massage = "abcad{ad}}{a{dd}"
-    # print(len(massage))
-    # print(massage[0])
-    while i < len(massage):
-
-        ch = massage[i]
-        if ch == '{':
-            stack.add('{')
-        elif ch == '}':
-            if stack.lengghtStack() != 0:
+    String = "a-(b+c*d)/e"
+    postfix = ""
+    # if 'a' in "+-/%)*(":
+    #     print("True")
+    # else:
+    #     print("False")
+    for ch in String:
+        if ch not in "+-/%)*(":
+            postfix += ch
+        elif ch == '(':
+            stack.add(ch)
+        elif ch == ')':
+            while stack.peek() != '(':
+                postfix += stack.peek()
                 stack.remove()
-
-        i += 1
-    else:
-        if stack.lengghtStack() > 0:
-            print("Not have balance")
+            stack.remove()
         else:
-            print('It have balance')
+            stack.add(ch)
+    while(stack.lengghtStack() !=  0):
+        postfix += stack.peek()
+        stack.remove()
+    print(postfix)
 
-    print(stack)
