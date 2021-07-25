@@ -2,8 +2,6 @@ class Node:
     def __init__(self, dataval=None):
         self.dataval = dataval
         self.nextval = None
-
-
 class SLinkedList:
 
     def __init__(self):
@@ -76,5 +74,5 @@ if __name__ == '__main__':
     # list.remove_date(4)
     list.insert_dataHeader(0)
     list.insert_datalast(5)
-    list.insert_dataBetween(item2,2.1)
+    list.insert_dataBetween(item2, 2.1)
     list.listprint()
